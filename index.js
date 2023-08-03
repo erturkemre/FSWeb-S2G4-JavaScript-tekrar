@@ -139,9 +139,7 @@ console.log(uceBolunenlerToplami(uceBolunenler()));
 
 //3d çözümü
 function besYuzdenKucukler(sayilar) {
-  besyuzdenkucuksayilar = sayilar.filter((item) => {
-    return item < 500;
-  });
+  besyuzdenkucuksayilar = sayilar.filter((item) => item < 500);
   return besyuzdenkucuksayilar;
 }
 console.log(besYuzdenKucukler(sayilar));
@@ -154,10 +152,10 @@ function sirala(arr) {
   return siralisayilar;
 }
 console.log(sirala(besyuzdenkucuksayilar));
-
+console.log(besyuzdenkucuksayilar);
 //3f çözümü
-function tekrarSayilari(arr) {
-  const tekraredenler = {};
+function tekrarSayilari(sayilar) {
+  let tekraredenler = {};
   tekraredensayilar = [];
   let sayi;
   let tekrarSayisi;
@@ -169,9 +167,12 @@ function tekrarSayilari(arr) {
         tekrarSayisi += 1;
       }
     }
+
     tekraredenler[item] = tekrarSayisi;
-    const msg = `${item} sayısı ${tekrarSayisi} kere tekrar edilmiştir`;
-    tekraredensayilar.push(msg);
+    const msg = `${item} sayısı ${tekraredenler[item]} kere tekrar edilmiştir`;
+    if (tekraredenler[item] > 1) {
+      tekraredensayilar.push(msg);
+    }
   }
 
   return tekraredensayilar;
